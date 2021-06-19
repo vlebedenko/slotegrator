@@ -1,46 +1,40 @@
 package tests.ui.selenium;
 
-import config.UserConfig;
-import io.cucumber.junit.Cucumber;
-import io.cucumber.junit.CucumberOptions;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.junit.runner.RunWith;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
-import steps.Hooks;
 
 import java.util.Arrays;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
+import static config.UserConfig.*;
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.openqa.selenium.By.cssSelector;
 import static org.openqa.selenium.By.xpath;
 
-//@CucumberOptions(plugin = "pretty", features = "src/test/resources/features")
 public class SeleniumUiTest {
 
     @Test
     public void uiTest() throws InterruptedException {
 
-        System.setProperty("webdriver.chrome.driver", "\\dev\\chromedriver\\chromedriver.exe");
+        System.setProperty(CHROME, DRIVER_ROOT);
         WebDriver driver = new ChromeDriver();
         driver.manage().timeouts().pageLoadTimeout(10, TimeUnit.SECONDS);
-        driver.get(UserConfig.URL);
-
+        driver.get(URL);
         WebElement login = driver.findElement(cssSelector("[id='UserLogin_username']"));
         WebElement password = driver.findElement(cssSelector("[id='UserLogin_password']"));
         WebElement signIn = driver.findElement(cssSelector("[type='submit']"));
-        login.sendKeys(UserConfig.USER_LOGIN);
-        password.sendKeys(UserConfig.USER_PASSWORD);
+        login.sendKeys(USER_LOGIN);
+        password.sendKeys(USER_PASSWORD);
         signIn.click();
 
         WebElement userContextLogin = driver.findElement(cssSelector(".nav-profile span"));
         WebElement menuButton = driver.findElement(cssSelector(".fa-bars"));
         assertThat(userContextLogin.getText())
-                .isEqualTo(UserConfig.USER_LOGIN)
+                .isEqualTo(USER_LOGIN)
                 .as("Проверка, что мы авторизовались под правильным пользователем");
 
         menuButton.click();

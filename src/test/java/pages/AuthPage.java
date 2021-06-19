@@ -9,7 +9,7 @@ public class AuthPage {
     public SelenideElement login = $("[id='UserLogin_username']");
     public SelenideElement password = $("[id='UserLogin_password']");
     public SelenideElement signIn = $("[type='submit']");
-    private String sign ="//input[@value='%s']";
+    private String sign = "//input[@value='%s']";
 
     public void inputLogin(String user) { this.login.val(user); }
 

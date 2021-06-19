@@ -4,11 +4,6 @@ import org.junit.jupiter.api.Test;
 import pages.AuthPage;
 import pages.Page;
 
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Properties;
-
 import static com.codeborne.selenide.Selenide.open;
 import static config.UserConfig.*;
 

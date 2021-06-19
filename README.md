@@ -5,7 +5,7 @@
 Также необходимо любое из двух условий:
 * либо положить **chromedriver.exe** в директорию /dev/chromedriver;
 * либо добавить chromedriver в переменную окружения Path и в SeleniumUiTest закомментировать строку
-`System.setProperty(CHROME, DRIVER_ROOT);`
+  `System.setProperty(CHROME, DRIVER_ROOT);`
   в SeleniumUiTest
 
 Запуск тестов можно произвести командой:

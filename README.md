@@ -35,6 +35,6 @@
 
 * /features/login.feature - сценарий запуска UI теста на авторизацию в связке с Cucumber
 * /features/playersPage.feature - сценарии запуска UI тестов на страницу с таблицей игроков в связке с Cucumber
-* /schema/playerSchema.json - схема json для валидации в ходе апи тестов
+* /playerSchema.json - схема json для валидации в ходе апи тестов
 
 
